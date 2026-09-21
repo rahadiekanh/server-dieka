@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Satoru</title>
+  <title>Portfolio | Rahadieka N.H</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,16 +20,8 @@
       --shadow: 0 24px 70px rgba(36, 56, 99, 0.14);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       min-height: 100vh;
       overflow-x: hidden;
@@ -37,13 +29,8 @@
       background: #fff;
       font-family: "Inter", sans-serif;
     }
+    a { color: inherit; text-decoration: none; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Background dekorasi */
     .blur-circle {
       position: fixed;
       z-index: -1;
@@ -67,7 +54,6 @@
       background: #d4a7ff;
     }
 
-    /* Navbar */
     header {
       position: fixed;
       z-index: 10;
@@ -98,9 +84,7 @@
       letter-spacing: -1px;
     }
 
-    .logo span {
-      color: var(--blue);
-    }
+    .logo span { color: var(--blue); }
 
     .nav-links {
       display: flex;
@@ -111,13 +95,8 @@
       font-weight: 500;
     }
 
-    .nav-links a {
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--blue);
-    }
+    .nav-links a { transition: 0.3s; }
+    .nav-links a:hover { color: var(--blue); }
 
     .nav-button {
       padding: 11px 18px;
@@ -136,7 +115,6 @@
       transform: translateY(-2px);
     }
 
-    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -168,19 +146,17 @@
     }
 
     h1 {
-      max-width: 600px;
+      max-width: 660px;
       font-family: "Playfair Display", serif;
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-size: clamp(3rem, 6vw, 6rem);
       line-height: 0.98;
       letter-spacing: -4px;
     }
 
-    h1 span {
-      color: var(--blue);
-    }
+    h1 span { color: var(--blue); }
 
     .hero-description {
-      max-width: 500px;
+      max-width: 520px;
       margin: 28px 0;
       color: var(--gray);
       font-size: 1rem;
@@ -193,8 +169,7 @@
       gap: 15px;
     }
 
-    .primary-button,
-    .secondary-button {
+    .primary-button, .secondary-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -227,7 +202,6 @@
       box-shadow: var(--shadow);
     }
 
-    /* Kartu 3D */
     .visual-area {
       display: flex;
       justify-content: center;
@@ -302,6 +276,7 @@
       filter: drop-shadow(-20px 25px 25px rgba(50, 69, 110, 0.2));
       transform: translateZ(65px);
       transition: 0.3s ease;
+      background: transparent;
     }
 
     .profile-card:hover .gojo-image {
@@ -323,17 +298,9 @@
       transform: translateZ(100px);
     }
 
-    .tag-one {
-      top: 150px;
-      right: -28px;
-    }
+    .tag-one { top: 150px; right: -28px; }
+    .tag-two { bottom: 70px; left: -25px; }
 
-    .tag-two {
-      bottom: 70px;
-      left: -25px;
-    }
-
-    /* Section umum */
     section {
       max-width: 1250px;
       margin: auto;
@@ -357,7 +324,6 @@
       line-height: 1.7;
     }
 
-    /* About */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -404,7 +370,6 @@
       font-weight: 600;
     }
 
-    /* Project */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -442,7 +407,6 @@
       line-height: 1.6;
     }
 
-    /* Footer */
     footer {
       margin-top: 50px;
       padding: 35px 7%;
@@ -452,11 +416,8 @@
       font-size: 0.85rem;
     }
 
-    /* Responsif */
     @media (max-width: 850px) {
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display: none; }
 
       .hero {
         grid-template-columns: 1fr;
@@ -464,36 +425,22 @@
         padding-top: 150px;
       }
 
-      .visual-area {
-        order: -1;
-      }
+      .visual-area { order: -1; }
 
-      h1 {
-        letter-spacing: -2px;
-      }
+      .profile-card { height: 460px; }
 
-      .profile-card {
-        height: 460px;
-      }
-
-      .about-grid,
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
+      .about-grid, .project-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
-      .nav-button {
-        display: none;
-      }
+      .nav-button { display: none; }
 
       .hero-buttons {
         align-items: stretch;
         flex-direction: column;
       }
 
-      .primary-button,
-      .secondary-button {
+      .primary-button, .secondary-button {
         width: 100%;
       }
 
@@ -511,7 +458,7 @@
 
   <header id="navbar">
     <nav>
-      <a href="#home" class="logo">SATORU<span>.</span></a>
+      <a href="#home" class="logo">RAHADIEKA<span>.</span></a>
 
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -519,7 +466,7 @@
         <li><a href="#projects">Projects</a></li>
       </ul>
 
-      <a href="mailto:emailkamu@example.com" class="nav-button">
+      <a href="mailto:rahadieka@example.com" class="nav-button">
         Contact Me
       </a>
     </nav>
@@ -528,17 +475,17 @@
   <main>
     <section class="hero" id="home">
       <div class="hero-content">
-        <div class="eyebrow">Creative Portfolio</div>
+        <div class="eyebrow">Student Portfolio</div>
 
         <h1>
-          Create with
-          <span>limitless</span>
-          imagination.
+          Hello, I am
+          <span>Rahadieka N.H</span>
         </h1>
 
         <p class="hero-description">
-          Halo, saya Satoru. Saya seorang creative developer yang mengubah
-          ide menjadi pengalaman digital yang elegan, modern, dan interaktif.
+          Saya adalah siswa kelas XI TKJ 4. Saya tertarik pada dunia teknologi,
+          desain, dan pengembangan web. Saya terus belajar untuk menciptakan
+          karya yang rapi, modern, dan bermanfaat.
         </p>
 
         <div class="hero-buttons">
@@ -549,17 +496,16 @@
 
       <div class="visual-area">
         <div class="profile-card" id="profileCard">
-          <div class="card-label">AVAILABLE FOR WORK</div>
+          <div class="card-label">XI TKJ 4</div>
 
-          <!-- Ganti gambar ini dengan foto anime Gojo milikmu -->
           <img
             src="assets/gojo-satoru.png"
-            alt="Ilustrasi anime Gojo Satoru"
+            alt="Foto Rahadieka N.H"
             class="gojo-image"
           />
 
-          <div class="floating-tag tag-one">UI/UX Designer</div>
-          <div class="floating-tag tag-two">Creative Developer</div>
+          <div class="floating-tag tag-one">Tech Student</div>
+          <div class="floating-tag tag-two">Web Developer</div>
         </div>
       </div>
     </section>
@@ -567,10 +513,10 @@
     <section id="about">
       <div class="section-heading">
         <div class="eyebrow">Get to know me</div>
-        <h2>Detail kecil, dampak besar.</h2>
+        <h2>Belajar, berinovasi, berkembang.</h2>
         <p>
-          Saya fokus membuat desain yang tidak hanya terlihat bagus,
-          tetapi juga nyaman digunakan dan memiliki karakter yang kuat.
+          Saya percaya bahwa teknologi bukan hanya alat, tetapi juga media
+          untuk menciptakan solusi yang lebih baik dan lebih inovatif.
         </p>
       </div>
 
@@ -578,23 +524,22 @@
         <div class="info-card">
           <h3>My Philosophy</h3>
           <p>
-            “With great power comes great responsibility.” Setiap project
-            saya kerjakan dengan perhatian terhadap detail, performa,
-            dan pengalaman pengguna.
+            Saya ingin terus belajar, membangun keterampilan, dan menghasilkan
+            sesuatu yang bermanfaat untuk diri sendiri dan orang lain.
           </p>
         </div>
 
         <div class="info-card">
           <h3>My Skills</h3>
-          <p>Beberapa teknologi dan kemampuan yang saya gunakan:</p>
+          <p>Beberapa hal yang saya pelajari:</p>
 
           <div class="skills">
             <span class="skill">HTML</span>
             <span class="skill">CSS</span>
             <span class="skill">JavaScript</span>
-            <span class="skill">UI/UX</span>
-            <span class="skill">Figma</span>
-            <span class="skill">3D Design</span>
+            <span class="skill">Network</span>
+            <span class="skill">Computer</span>
+            <span class="skill">TKJ</span>
           </div>
         </div>
       </div>
@@ -603,34 +548,34 @@
     <section id="projects">
       <div class="section-heading">
         <div class="eyebrow">Selected work</div>
-        <h2>Beberapa project pilihan.</h2>
+        <h2>Proyek belajar saya.</h2>
         <p>
-          Koleksi project yang menunjukkan proses kreatif dan kemampuan saya.
+          Beberapa tugas dan ide yang saya buat selama proses belajar.
         </p>
       </div>
 
       <div class="project-grid">
         <article class="project-card">
-          <div class="project-number">01 / WEB DESIGN</div>
-          <h3>Infinity Landing Page</h3>
+          <div class="project-number">01 / WEB</div>
+          <h3>Landing Page</h3>
           <p>
-            Landing page modern dengan animasi halus dan visual yang kuat.
+            Membuat tampilan halaman web yang modern dan responsif.
           </p>
         </article>
 
         <article class="project-card">
-          <div class="project-number">02 / UI DESIGN</div>
-          <h3>Minimal Dashboard</h3>
+          <div class="project-number">02 / UI</div>
+          <h3>Portfolio</h3>
           <p>
-            Dashboard bersih dan responsif untuk memudahkan pengelolaan data.
+            Menyusun portofolio dengan desain yang rapi dan profesional.
           </p>
         </article>
 
         <article class="project-card">
-          <div class="project-number">03 / BRANDING</div>
-          <h3>Blue Flame Identity</h3>
+          <div class="project-number">03 / TECH</div>
+          <h3>IT Learning</h3>
           <p>
-            Identitas visual dengan perpaduan warna biru dan gaya futuristik.
+            Mempelajari teknologi dan cara mengimplementasikannya dalam proyek.
           </p>
         </article>
       </div>
@@ -638,22 +583,19 @@
   </main>
 
   <footer>
-    © 2025 Satoru Portfolio. Designed with limitless imagination.
+    © 2025 Rahadieka N.H | XI TKJ 4
   </footer>
 
   <script>
     const navbar = document.getElementById("navbar");
     const profileCard = document.getElementById("profileCard");
 
-    // Efek navbar saat halaman di-scroll
     window.addEventListener("scroll", () => {
       navbar.classList.toggle("scrolled", window.scrollY > 30);
     });
 
-    // Efek tilt 3D pada kartu Gojo
     profileCard.addEventListener("mousemove", (event) => {
       const rect = profileCard.getBoundingClientRect();
-
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
 
