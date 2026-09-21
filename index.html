@@ -1,1 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Satoru</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --dark: #101828;
+      --gray: #667085;
+      --light-gray: #f4f7fb;
+      --blue: #5b8def;
+      --purple: #805ad5;
+      --border: rgba(16, 24, 40, 0.08);
+      --shadow: 0 24px 70px rgba(36, 56, 99, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--dark);
+      background: #fff;
+      font-family: "Inter", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Background dekorasi */
+    .blur-circle {
+      position: fixed;
+      z-index: -1;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .circle-one {
+      top: 5%;
+      left: -100px;
+      background: #9abaff;
+    }
+
+    .circle-two {
+      right: -100px;
+      bottom: 5%;
+      background: #d4a7ff;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      width: 100%;
+      padding: 22px 7%;
+      transition: 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 14px 7%;
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 8px 22px rgba(31, 48, 80, 0.08);
+      transition: 0.3s;
+    }
+
+    .nav-button:hover {
+      color: white;
+      background: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+      max-width: 1250px;
+      min-height: 100vh;
+      margin: auto;
+      padding: 120px 7% 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 27px;
+      height: 2px;
+      background: var(--blue);
+      content: "";
+    }
+
+    h1 {
+      max-width: 600px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      line-height: 0.98;
+      letter-spacing: -4px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .hero-description {
+      max-width: 500px;
+      margin: 28px 0;
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .primary-button {
+      color: white;
+      background: var(--dark);
+      box-shadow: 0 12px 25px rgba(16, 24, 40, 0.18);
+    }
+
+    .primary-button:hover {
+      background: var(--blue);
+      transform: translateY(-4px);
+    }
+
+    .secondary-button {
+      border: 1px solid var(--border);
+      color: var(--dark);
+      background: #fff;
+    }
+
+    .secondary-button:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Kartu 3D */
+    .visual-area {
+      display: flex;
+      justify-content: center;
+      perspective: 1400px;
+    }
+
+    .profile-card {
+      position: relative;
+      width: min(390px, 90vw);
+      height: 520px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 28px;
+      background: linear-gradient(145deg, #edf4ff, #ffffff);
+      box-shadow:
+        30px 30px 70px rgba(63, 87, 137, 0.18),
+        inset 0 0 30px rgba(255, 255, 255, 0.8);
+      transform: rotateY(-10deg) rotateX(5deg);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out;
+    }
+
+    .profile-card::before {
+      position: absolute;
+      top: -100px;
+      right: -80px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(129, 164, 255, 0.35);
+      filter: blur(3px);
+      content: "";
+    }
+
+    .profile-card::after {
+      position: absolute;
+      bottom: -110px;
+      left: -70px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(198, 160, 255, 0.27);
+      filter: blur(5px);
+      content: "";
+    }
+
+    .card-label {
+      position: absolute;
+      z-index: 3;
+      top: 25px;
+      left: 25px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 30px;
+      color: #50617d;
+      background: rgba(255, 255, 255, 0.6);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      backdrop-filter: blur(10px);
+    }
+
+    .gojo-image {
+      position: absolute;
+      z-index: 2;
+      right: -20px;
+      bottom: 0;
+      width: 108%;
+      height: 91%;
+      object-fit: contain;
+      object-position: bottom;
+      filter: drop-shadow(-20px 25px 25px rgba(50, 69, 110, 0.2));
+      transform: translateZ(65px);
+      transition: 0.3s ease;
+    }
+
+    .profile-card:hover .gojo-image {
+      transform: translateZ(95px) scale(1.03);
+    }
+
+    .floating-tag {
+      position: absolute;
+      z-index: 4;
+      padding: 12px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 13px;
+      color: var(--dark);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 12px 30px rgba(61, 81, 125, 0.13);
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(12px);
+      transform: translateZ(100px);
+    }
+
+    .tag-one {
+      top: 150px;
+      right: -28px;
+    }
+
+    .tag-two {
+      bottom: 70px;
+      left: -25px;
+    }
+
+    /* Section umum */
+    section {
+      max-width: 1250px;
+      margin: auto;
+      padding: 100px 7%;
+    }
+
+    .section-heading {
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      letter-spacing: -1.5px;
+    }
+
+    .section-heading p {
+      margin-top: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .info-card {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 15px 45px rgba(36, 56, 99, 0.06);
+      transition: 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      margin-bottom: 13px;
+      font-size: 1.15rem;
+    }
+
+    .info-card p {
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      padding: 9px 13px;
+      border-radius: 30px;
+      color: #45639b;
+      background: #edf4ff;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    /* Project */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      min-height: 230px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #fff, #f6f8fc);
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px) rotateX(3deg);
+      box-shadow: var(--shadow);
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .project-card h3 {
+      margin: 43px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .project-card p {
+      color: var(--gray);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      padding: 35px 7%;
+      border-top: 1px solid var(--border);
+      color: var(--gray);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* Responsif */
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding-top: 150px;
+      }
+
+      .visual-area {
+        order: -1;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .profile-card {
+        height: 460px;
+      }
+
+      .about-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-button {
+        display: none;
+      }
+
+      .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .primary-button,
+      .secondary-button {
+        width: 100%;
+      }
+
+      section {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blur-circle circle-one"></div>
+  <div class="blur-circle circle-two"></div>
+
+  <header id="navbar">
+    <nav>
+      <a href="#home" class="logo">SATORU<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+
+      <a href="mailto:emailkamu@example.com" class="nav-button">
+        Contact Me
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Creative Portfolio</div>
+
+        <h1>
+          Create with
+          <span>limitless</span>
+          imagination.
+        </h1>
+
+        <p class="hero-description">
+          Halo, saya Satoru. Saya seorang creative developer yang mengubah
+          ide menjadi pengalaman digital yang elegan, modern, dan interaktif.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="primary-button">Lihat Portfolio</a>
+          <a href="#about" class="secondary-button">Tentang Saya</a>
+        </div>
+      </div>
+
+      <div class="visual-area">
+        <div class="profile-card" id="profileCard">
+          <div class="card-label">AVAILABLE FOR WORK</div>
+
+          <!-- Ganti gambar ini dengan foto anime Gojo milikmu -->
+          <img
+            src="assets/gojo-satoru.png"
+            alt="Ilustrasi anime Gojo Satoru"
+            class="gojo-image"
+          />
+
+          <div class="floating-tag tag-one">UI/UX Designer</div>
+          <div class="floating-tag tag-two">Creative Developer</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-heading">
+        <div class="eyebrow">Get to know me</div>
+        <h2>Detail kecil, dampak besar.</h2>
+        <p>
+          Saya fokus membuat desain yang tidak hanya terlihat bagus,
+          tetapi juga nyaman digunakan dan memiliki karakter yang kuat.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="info-card">
+          <h3>My Philosophy</h3>
+          <p>
+            “With great power comes great responsibility.” Setiap project
+            saya kerjakan dengan perhatian terhadap detail, performa,
+            dan pengalaman pengguna.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>My Skills</h3>
+          <p>Beberapa teknologi dan kemampuan yang saya gunakan:</p>
+
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">UI/UX</span>
+            <span class="skill">Figma</span>
+            <span class="skill">3D Design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-heading">
+        <div class="eyebrow">Selected work</div>
+        <h2>Beberapa project pilihan.</h2>
+        <p>
+          Koleksi project yang menunjukkan proses kreatif dan kemampuan saya.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-number">01 / WEB DESIGN</div>
+          <h3>Infinity Landing Page</h3>
+          <p>
+            Landing page modern dengan animasi halus dan visual yang kuat.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">02 / UI DESIGN</div>
+          <h3>Minimal Dashboard</h3>
+          <p>
+            Dashboard bersih dan responsif untuk memudahkan pengelolaan data.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">03 / BRANDING</div>
+          <h3>Blue Flame Identity</h3>
+          <p>
+            Identitas visual dengan perpaduan warna biru dan gaya futuristik.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Satoru Portfolio. Designed with limitless imagination.
+  </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const profileCard = document.getElementById("profileCard");
+
+    // Efek navbar saat halaman di-scroll
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 30);
+    });
+
+    // Efek tilt 3D pada kartu Gojo
+    profileCard.addEventListener("mousemove", (event) => {
+      const rect = profileCard.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const rotateY = ((x / rect.width) - 0.5) * 18;
+      const rotateX = ((y / rect.height) - 0.5) * -18;
+
+      profileCard.style.transform =
+        `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    profileCard.addEventListener("mouseleave", () => {
+      profileCard.style.transform = "rotateY(-10deg) rotateX(5deg)";
+    });
+  </script>
+</body>
+</html>
