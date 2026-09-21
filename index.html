@@ -20,31 +20,31 @@
       --shadow: 0 24px 70px rgba(36, 56, 99, 0.14);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      min-height: 100vh;
-      overflow-x: hidden;
-      color: var(--dark);
-      background: #fff;
       font-family: "Inter", sans-serif;
+      background: #ffffff;
+      color: var(--dark);
+      overflow-x: hidden;
     }
+
     a { color: inherit; text-decoration: none; }
 
     .blur-circle {
       position: fixed;
-      z-index: -1;
       width: 330px;
       height: 330px;
       border-radius: 50%;
       filter: blur(80px);
       opacity: 0.22;
+      z-index: 0;
       pointer-events: none;
     }
 
     .circle-one {
-      top: 5%;
       left: -100px;
+      top: 5%;
       background: #9abaff;
     }
 
@@ -56,73 +56,78 @@
 
     header {
       position: fixed;
-      z-index: 10;
       top: 0;
+      left: 0;
       width: 100%;
       padding: 22px 7%;
       transition: 0.3s ease;
+      z-index: 20;
     }
 
     header.scrolled {
-      padding: 14px 7%;
-      background: rgba(255, 255, 255, 0.78);
-      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.8);
       backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
     }
 
     nav {
+      max-width: 1250px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1250px;
-      margin: auto;
     }
 
     .logo {
-      font-size: 1.2rem;
       font-weight: 800;
+      font-size: 1.2rem;
       letter-spacing: -1px;
     }
 
     .logo span { color: var(--blue); }
 
     .nav-links {
+      list-style: none;
       display: flex;
       gap: 32px;
-      list-style: none;
       color: var(--gray);
       font-size: 0.9rem;
       font-weight: 500;
     }
 
-    .nav-links a { transition: 0.3s; }
     .nav-links a:hover { color: var(--blue); }
 
     .nav-button {
-      padding: 11px 18px;
       border: 1px solid var(--border);
-      border-radius: 30px;
       background: #fff;
-      font-size: 0.85rem;
+      color: var(--dark);
+      border-radius: 30px;
+      padding: 11px 18px;
       font-weight: 600;
-      box-shadow: 0 8px 22px rgba(31, 48, 80, 0.08);
+      font-size: 0.85rem;
+      box-shadow: 0 8px 22px rgba(31,48,80,0.08);
       transition: 0.3s;
     }
 
     .nav-button:hover {
-      color: white;
       background: var(--dark);
+      color: white;
       transform: translateY(-2px);
     }
 
+    .container {
+      max-width: 1250px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
     .hero {
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
       gap: 70px;
-      max-width: 1250px;
-      min-height: 100vh;
-      margin: auto;
       padding: 120px 7% 70px;
     }
 
@@ -130,34 +135,37 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      margin-bottom: 22px;
       color: var(--blue);
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 1.8px;
       text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
     .eyebrow::before {
+      content: "";
       width: 27px;
       height: 2px;
       background: var(--blue);
-      content: "";
+      display: inline-block;
     }
 
     h1 {
-      max-width: 660px;
       font-family: "Playfair Display", serif;
-      font-size: clamp(3rem, 6vw, 6rem);
+      font-size: clamp(3.2rem, 7vw, 6.2rem);
       line-height: 0.98;
       letter-spacing: -4px;
+      max-width: 620px;
     }
 
-    h1 span { color: var(--blue); }
+    h1 span {
+      color: var(--blue);
+    }
 
     .hero-description {
-      max-width: 520px;
-      margin: 28px 0;
+      margin-top: 26px;
+      max-width: 540px;
       color: var(--gray);
       font-size: 1rem;
       line-height: 1.8;
@@ -165,8 +173,10 @@
 
     .hero-buttons {
       display: flex;
-      align-items: center;
       gap: 15px;
+      align-items: center;
+      margin-top: 28px;
+      flex-wrap: wrap;
     }
 
     .primary-button, .secondary-button {
@@ -175,14 +185,14 @@
       justify-content: center;
       padding: 14px 22px;
       border-radius: 12px;
+      transition: 0.3s ease;
       font-size: 0.9rem;
       font-weight: 600;
-      transition: 0.3s ease;
     }
 
     .primary-button {
-      color: white;
       background: var(--dark);
+      color: #fff;
       box-shadow: 0 12px 25px rgba(16, 24, 40, 0.18);
     }
 
@@ -192,9 +202,9 @@
     }
 
     .secondary-button {
-      border: 1px solid var(--border);
-      color: var(--dark);
       background: #fff;
+      color: var(--dark);
+      border: 1px solid var(--border);
     }
 
     .secondary-button:hover {
@@ -213,73 +223,71 @@
       width: min(390px, 90vw);
       height: 520px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255,255,255,0.8);
       border-radius: 28px;
       background: linear-gradient(145deg, #edf4ff, #ffffff);
       box-shadow:
-        30px 30px 70px rgba(63, 87, 137, 0.18),
-        inset 0 0 30px rgba(255, 255, 255, 0.8);
+        30px 30px 70px rgba(63,87,137,0.18),
+        inset 0 0 30px rgba(255,255,255,0.8);
       transform: rotateY(-10deg) rotateX(5deg);
       transform-style: preserve-3d;
       transition: transform 0.2s ease-out;
     }
 
     .profile-card::before {
+      content: "";
       position: absolute;
       top: -100px;
       right: -80px;
       width: 250px;
       height: 250px;
       border-radius: 50%;
-      background: rgba(129, 164, 255, 0.35);
+      background: rgba(129,164,255,0.35);
       filter: blur(3px);
-      content: "";
     }
 
     .profile-card::after {
+      content: "";
       position: absolute;
       bottom: -110px;
       left: -70px;
       width: 260px;
       height: 260px;
       border-radius: 50%;
-      background: rgba(198, 160, 255, 0.27);
+      background: rgba(198,160,255,0.27);
       filter: blur(5px);
-      content: "";
     }
 
     .card-label {
       position: absolute;
-      z-index: 3;
-      top: 25px;
+      top: 26px;
       left: 25px;
+      z-index: 3;
       padding: 9px 13px;
-      border: 1px solid rgba(255, 255, 255, 0.75);
       border-radius: 30px;
-      color: #50617d;
-      background: rgba(255, 255, 255, 0.6);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      border: 1px solid rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.62);
       backdrop-filter: blur(10px);
+      color: #50617d;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      font-weight: 700;
     }
 
-    .gojo-image {
+    .profile-image {
       position: absolute;
-      z-index: 2;
-      right: -20px;
+      right: -26px;
       bottom: 0;
       width: 108%;
-      height: 91%;
+      height: 92%;
       object-fit: contain;
       object-position: bottom;
-      filter: drop-shadow(-20px 25px 25px rgba(50, 69, 110, 0.2));
       transform: translateZ(65px);
+      filter: drop-shadow(-20px 25px 25px rgba(50,69,110,0.2));
       transition: 0.3s ease;
-      background: transparent;
     }
 
-    .profile-card:hover .gojo-image {
+    .profile-card:hover .profile-image {
       transform: translateZ(95px) scale(1.03);
     }
 
@@ -287,14 +295,14 @@
       position: absolute;
       z-index: 4;
       padding: 12px 15px;
-      border: 1px solid rgba(255, 255, 255, 0.75);
       border-radius: 13px;
-      color: var(--dark);
-      background: rgba(255, 255, 255, 0.72);
-      box-shadow: 0 12px 30px rgba(61, 81, 125, 0.13);
+      border: 1px solid rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.72);
+      box-shadow: 0 12px 30px rgba(61,81,125,0.13);
+      backdrop-filter: blur(12px);
       font-size: 0.75rem;
       font-weight: 700;
-      backdrop-filter: blur(12px);
+      color: var(--dark);
       transform: translateZ(100px);
     }
 
@@ -302,8 +310,6 @@
     .tag-two { bottom: 70px; left: -25px; }
 
     section {
-      max-width: 1250px;
-      margin: auto;
       padding: 100px 7%;
     }
 
@@ -332,10 +338,10 @@
 
     .info-card {
       padding: 30px;
-      border: 1px solid var(--border);
       border-radius: 22px;
-      background: rgba(255, 255, 255, 0.75);
-      box-shadow: 0 15px 45px rgba(36, 56, 99, 0.06);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 15px 45px rgba(36,56,99,0.06);
       transition: 0.3s ease;
     }
 
@@ -364,23 +370,23 @@
     .skill {
       padding: 9px 13px;
       border-radius: 30px;
-      color: #45639b;
       background: #edf4ff;
-      font-size: 0.78rem;
+      color: #45639b;
       font-weight: 600;
+      font-size: 0.78rem;
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
       gap: 20px;
     }
 
     .project-card {
       min-height: 230px;
       padding: 25px;
-      border: 1px solid var(--border);
       border-radius: 20px;
+      border: 1px solid var(--border);
       background: linear-gradient(145deg, #fff, #f6f8fc);
       transition: 0.3s ease;
     }
@@ -407,12 +413,56 @@
       line-height: 1.6;
     }
 
-    footer {
-      margin-top: 50px;
-      padding: 35px 7%;
-      border-top: 1px solid var(--border);
+    .profile-box {
+      padding: 30px 0 0;
+    }
+
+    .profile-card-mini {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 15px 45px rgba(36,56,99,0.06);
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .profile-box img {
+      width: 100%;
+      max-width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 6px solid #eaf1ff;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .profile-text h3 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .profile-text .kelas {
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .profile-text p {
       color: var(--gray);
+      line-height: 1.8;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
       text-align: center;
+      padding: 35px 7%;
+      color: var(--gray);
       font-size: 0.85rem;
     }
 
@@ -429,29 +479,27 @@
 
       .profile-card { height: 460px; }
 
-      .about-grid, .project-grid { grid-template-columns: 1fr; }
+      .about-grid,
+      .project-grid,
+      .profile-card-mini {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 480px) {
       .nav-button { display: none; }
 
       .hero-buttons {
-        align-items: stretch;
         flex-direction: column;
+        align-items: stretch;
       }
 
       .primary-button, .secondary-button {
         width: 100%;
       }
-
-      section {
-        padding-top: 70px;
-        padding-bottom: 70px;
-      }
     }
   </style>
 </head>
-
 <body>
   <div class="blur-circle circle-one"></div>
   <div class="blur-circle circle-two"></div>
@@ -464,17 +512,16 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#profile">Profile</a></li>
       </ul>
 
-      <a href="mailto:rahadieka@example.com" class="nav-button">
-        Contact Me
-      </a>
+      <a href="mailto:rahadieka@example.com" class="nav-button">Contact Me</a>
     </nav>
   </header>
 
-  <main>
+  <main class="container">
     <section class="hero" id="home">
-      <div class="hero-content">
+      <div>
         <div class="eyebrow">Student Portfolio</div>
 
         <h1>
@@ -490,7 +537,7 @@
 
         <div class="hero-buttons">
           <a href="#projects" class="primary-button">Lihat Portfolio</a>
-          <a href="#about" class="secondary-button">Tentang Saya</a>
+          <a href="#profile" class="secondary-button">Profil Saya</a>
         </div>
       </div>
 
@@ -501,7 +548,7 @@
           <img
             src="assets/gojo-satoru.png"
             alt="Foto Rahadieka N.H"
-            class="gojo-image"
+            class="profile-image"
           />
 
           <div class="floating-tag tag-one">Tech Student</div>
@@ -580,6 +627,29 @@
         </article>
       </div>
     </section>
+
+    <section id="profile">
+      <div class="section-heading">
+        <div class="eyebrow">Profile</div>
+        <h2>Data diri saya.</h2>
+      </div>
+
+      <div class="profile-box">
+        <div class="profile-card-mini">
+          <img src="assets/gojo-satoru.png" alt="Foto Rahadieka N.H" />
+
+          <div class="profile-text">
+            <h3>Rahadieka N.H</h3>
+            <div class="kelas">XI TKJ 4</div>
+            <p>
+              Saya adalah siswa yang tertarik pada teknologi, jaringan komputer,
+              desain, dan pengembangan website. Saya terus berusaha belajar
+              agar bisa menciptakan hal yang bermanfaat dan menarik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -594,21 +664,23 @@
       navbar.classList.toggle("scrolled", window.scrollY > 30);
     });
 
-    profileCard.addEventListener("mousemove", (event) => {
-      const rect = profileCard.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
+    if (profileCard) {
+      profileCard.addEventListener("mousemove", (event) => {
+        const rect = profileCard.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
 
-      const rotateY = ((x / rect.width) - 0.5) * 18;
-      const rotateX = ((y / rect.height) - 0.5) * -18;
+        const rotateY = ((x / rect.width) - 0.5) * 18;
+        const rotateX = ((y / rect.height) - 0.5) * -18;
 
-      profileCard.style.transform =
-        `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
+        profileCard.style.transform =
+          `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
 
-    profileCard.addEventListener("mouseleave", () => {
-      profileCard.style.transform = "rotateY(-10deg) rotateX(5deg)";
-    });
+      profileCard.addEventListener("mouseleave", () => {
+        profileCard.style.transform = "rotateY(-10deg) rotateX(5deg)";
+      });
+    }
   </script>
 </body>
 </html>
