@@ -1,0 +1,91 @@
+/* Animasi tambahan untuk portfolio Rahadieka N.H */
+
+@keyframes portfolioFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes portfolioFadeLeft {
+  from { opacity: 0; transform: translateX(-35px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes portfolioFadeRight {
+  from { opacity: 0; transform: translateX(35px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes portfolioFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(1deg); }
+}
+
+@keyframes portfolioGlow {
+  0%, 100% { box-shadow: 0 15px 45px rgba(36, 56, 99, 0.06); }
+  50% { box-shadow: 0 22px 60px rgba(91, 141, 239, 0.2); }
+}
+
+/* Tambahkan file ini setelah style utama di index.html agar aktif. */
+.blur-circle { animation: portfolioFloat 7s ease-in-out infinite; }
+.circle-two { animation-delay: -3s; }
+
+.hero > div:first-child { animation: portfolioFadeLeft 0.9s ease both; }
+.visual-area { animation: portfolioFadeRight 0.9s ease 0.15s both; }
+.profile-card { animation: portfolioFloat 5s ease-in-out infinite; }
+
+.info-card,
+.project-card,
+.certificate-card,
+.profile-card-mini {
+  animation: portfolioFadeUp 0.8s ease both;
+}
+
+.info-card:nth-child(2),
+.project-card:nth-child(2),
+.certificate-card:nth-child(2) { animation-delay: 0.12s; }
+
+.project-card:nth-child(3),
+.certificate-card:nth-child(3) { animation-delay: 0.24s; }
+
+.info-card:hover,
+.project-card:hover,
+.certificate-card:hover,
+.profile-card-mini:hover {
+  animation: portfolioGlow 1.5s ease-in-out infinite;
+}
+
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+
+.primary-button,
+.secondary-button,
+.nav-button,
+.skill,
+.certificate-year {
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.nav-button:hover { transform: translateY(-5px) scale(1.03); }
+.skill:hover,
+.certificate-year:hover { transform: scale(1.08); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
