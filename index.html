@@ -622,6 +622,143 @@
       }
     }
 
+    /* KAMPUS */
+    .kampus-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .kampus-card {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 15px 45px rgba(36, 56, 99, 0.06);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .kampus-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .kampus-header {
+      padding: 30px;
+      background: linear-gradient(135deg, #edf4ff 0%, #f0f4ff 100%);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .kampus-logo {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .logo-img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+
+    .kampus-badge {
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: var(--blue);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .kampus-content {
+      padding: 30px;
+    }
+
+    .kampus-content h3 {
+      margin-bottom: 6px;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .kampus-subtitle {
+      color: var(--blue);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .kampus-description {
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .kampus-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px;
+      background: #f9fafb;
+      border-radius: 16px;
+      margin-bottom: 24px;
+    }
+
+    .highlight-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .highlight-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .highlight-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .kampus-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .kampus-skill {
+      padding: 8px 13px;
+      border-radius: 20px;
+      background: #edf4ff;
+      color: #5b8def;
+      font-weight: 600;
+      font-size: 0.75rem;
+      border: 1px solid rgba(91, 141, 239, 0.2);
+    }
+
+    .kampus-motivation {
+      color: var(--gray);
+      line-height: 1.75;
+      font-style: italic;
+      border-left: 3px solid var(--blue);
+      padding-left: 16px;
+    }
+
     footer {
       border-top: 1px solid var(--border);
       text-align: center;
@@ -643,6 +780,10 @@
       .project-grid,
       .certificate-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .kampus-highlights {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -702,6 +843,11 @@
       .profile-card-mini {
         padding: 22px;
       }
+
+      .kampus-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -719,6 +865,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#certificates">Sertifikat</a></li>
+        <li><a href="#kampus">Kampus</a></li>
         <li><a href="#profile">Profile</a></li>
       </ul>
 
@@ -941,6 +1088,76 @@
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- KAMPUS IMPIAN -->
+    <section id="kampus">
+      <div class="section-heading">
+        <div class="eyebrow">Future Goal</div>
+
+        <h2>Kampus Impian Saya.</h2>
+
+        <p>
+          Saya bercita-cita melanjutkan pendidikan ke jenjang yang lebih tinggi
+          di universitas terkemuka untuk mengembangkan potensi dan keahlian.
+        </p>
+      </div>
+
+      <div class="kampus-grid">
+        <article class="kampus-card">
+          <div class="kampus-header">
+            <div class="kampus-logo">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/id/thumb/e/e8/Logo_ITB.svg/1200px-Logo_ITB.svg.png"
+                alt="Logo ITB"
+                class="logo-img"
+              />
+            </div>
+            <div class="kampus-badge">Pilihan Utama</div>
+          </div>
+
+          <div class="kampus-content">
+            <h3>Institut Teknologi Bandung</h3>
+            <p class="kampus-subtitle">ITB - Bandung, Jawa Barat</p>
+
+            <p class="kampus-description">
+              ITB adalah universitas terkemuka di Indonesia dengan reputasi
+              internasional. Saya ingin bergabung dengan program Teknik
+              Jaringan Komputer atau Teknik Informatika untuk mendalami ilmu
+              teknologi dan inovasi.
+            </p>
+
+            <div class="kampus-highlights">
+              <div class="highlight-item">
+                <span class="highlight-label">Program Studi</span>
+                <span class="highlight-value">Teknik Jaringan Komputer</span>
+              </div>
+
+              <div class="highlight-item">
+                <span class="highlight-label">Lokasi</span>
+                <span class="highlight-value">Bandung, Jawa Barat</span>
+              </div>
+
+              <div class="highlight-item">
+                <span class="highlight-label">Target Masuk</span>
+                <span class="highlight-value">2027 / 2028</span>
+              </div>
+            </div>
+
+            <div class="kampus-skills">
+              <span class="kampus-skill">SNBT</span>
+              <span class="kampus-skill">Belajar Mandiri</span>
+              <span class="kampus-skill">Persiapan Matang</span>
+              <span class="kampus-skill">Dedikasi Tinggi</span>
+            </div>
+
+            <p class="kampus-motivation">
+              Saya berkomitmen untuk terus belajar dan mempersiapkan diri dengan
+              sebaik-baiknya agar dapat diterima di universitas impian ini.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
